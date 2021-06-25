@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
         <!-- Styles -->
         <style>
             html, body {
@@ -64,6 +66,13 @@
         </style>
     </head>
     <body>
+
+        {{-- ---------- Start of Success Message ---------- --}}
+        @if(Session::has('success'))
+            <div class="alert alert-success">{{ Session::get('success') }}</div>
+        @endif
+        {{-- ---------- End of Success Message ---------- --}}
+
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
@@ -71,5 +80,10 @@
                 </div>
             </div>
         </div>
+
+        {{-- ---------- Start of Js ---------- --}}
+        @yield('js')
+        {{-- ---------- End of Js ---------- --}}
+
     </body>
 </html>

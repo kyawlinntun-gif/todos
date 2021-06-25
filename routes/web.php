@@ -20,4 +20,9 @@ Route::get('/', function () {
 
 /* ---------- Start of Todo Routes ---------- */
 Route::get('/todos', [TodosController::class, 'index']);
+Route::post('/todos/add', [TodosController::class, 'store']);
+Route::get('/todos/{todo}', [TodosController::class, 'edit']);
+Route::match(['put', 'patch'], '/todos/{todo}', [TodosController::class, 'update']);
+Route::put('/todos/completed/{todo}', [TodosController::class, 'completed']);
+Route::delete('/todos/{todo}', [TodosController::class, 'destroy']);
 /* ---------- End of Todo Routes ---------- */
